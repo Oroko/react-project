@@ -3,13 +3,15 @@ import React,{useState} from 'react'
 import './style.css'
 
 const ContactCard = (props) => {
+
+ 
   const [showAge, setShowAge] = useState(true);
   const handleClick =() => {
     setShowAge(!showAge)
   }
   return(
     <div className="contact-card">
-      <img src={props.image} alt="profile"/>
+      <img src={props.avatar} alt="profile"/>
     <div className="user-details">
       <p>Name: {props.name}</p>
       <p>Email: {props.email}</p>

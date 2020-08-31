@@ -5,12 +5,26 @@ import ContactCard from './ContactCard';
 
 const APP =() => {
   
+  const contacts = [
+    {name: "Abel Gechure", email: "aoroko09@gmail.com", age: 29},
+    {name: "Abel Gechure", email: "aoroko09@gmail.com", age: 29},
+    {name: "Abel Gechure", email: "aoroko09@gmail.com", age: 29},
+  ]
+    
+  
   return(
     <div>
-      <ContactCard image="https://via.placeholder.com/150" name="Abel Gechure" email="aoroko09@gmail.com" age={29}/>
-      <ContactCard image="https://via.placeholder.com/150" name="Aella Cox-Oroko" email="aellaCO09@gmail.com" age={2}/>
-      <ContactCard image="https://via.placeholder.com/150" name="Ziomara Cox-Oroko" email="zioCO09@gmail.com" age={2}/>
+      {contacts.map((contact)=>{
+        return(
+          <ContactCard 
+            avatar="https://via.placeholder.com/150"
+            name={contact.name}
+            email={contact.email}
+            age={contact.age}
 
+          />
+        )
+      })}
     </div>
   
   )
