@@ -1,15 +1,17 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import ContactCard from './ContactCard';
 
 
 
 const APP =() => {
   
-  const contacts = [
-    {name: "Abel Gechure", email: "aoroko09@gmail.com", age: 29},
-    {name: "Abel Gechure", email: "aoroko09@gmail.com", age: 29},
-    {name: "Abel Gechure", email: "aoroko09@gmail.com", age: 29},
-  ]
+  const [contacts, setContacts] = useState([]);
+  useEffect(() => {
+    fetch('https://randomuser.me/api/?results=3')
+    .then(response => response.json())
+    .then(data => setContacts(data.results))
+  },[])
+  
     
   
   return(
@@ -17,10 +19,10 @@ const APP =() => {
       {contacts.map((contact)=>{
         return(
           <ContactCard 
-            avatar="https://via.placeholder.com/150"
-            name={contact.name}
+            avatar={contact.picture.large}
+            name={contact.name.first + ' ' + contact.name.last}
             email={contact.email}
-            age={contact.age}
+            age={contact.dob.age}
 
           />
         )
